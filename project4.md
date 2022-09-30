@@ -71,8 +71,8 @@ Add server.js file:
 `vi server.js`
 
 Copy and paste the web server code below into the server.js file:
-
-<!-- var express = require('express');
+```
+var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -81,8 +81,8 @@ require('./apps/routes')(app);
 app.set('port', 3300);
 app.listen(app.get('port'), function() {
     console.log('Server up: http://localhost:' + app.get('port'));
-}); -->
-
+});
+```
 ![serverjs](./images/10_serverjs.png)
 
 ## Install Express and set up routes to the server
@@ -98,8 +98,8 @@ Inside Books folder create another folder called apps:
 Create a file called routes.js and insert code:
 
 `vi routes.js`
-
-<!-- var Book = require('./models/book');
+```
+var Book = require('./models/book');
 module.exports = function(app) {
   app.get('/book', function(req, res) {
     Book.find({}, function(err, result) {
@@ -135,8 +135,8 @@ module.exports = function(app) {
   app.get('*', function(req, res) {
     res.sendfile(path.join(__dirname + '/public', 'index.html'));
   });
-}; -->
-
+};
+```
 ![routesjs](./images/12_routesjs.png)
 
 In the apps folder, create a folder called models:
@@ -158,8 +158,8 @@ Create a folder called public inside of Books folder
 Add a file called script.js and add the code:
 
 `vi script.js`
-
-<!-- var app = angular.module('myApp', []);
+```
+var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
   $http( {
     method: 'GET',
@@ -195,15 +195,15 @@ app.controller('myCtrl', function($scope, $http) {
       console.log('Error: ' + response);
     });
   };
-}); -->
-
+});
+```
 ![script.js](./images/14_scriptjs.png)
 
 Inside of public folder called a file called index.html and add code:
 
 `vi index.html`
-
-<!-- <!doctype html>
+```
+<!doctype html>
 <html ng-app="myApp" ng-controller="myCtrl">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -252,8 +252,8 @@ Inside of public folder called a file called index.html and add code:
       </table>
     </div>
   </body>
-</html> -->
-
+</html>
+```
 ![index.html](./images/15_indexhtml.png)
 
 Edit the inbound rules to allow TCP port 3300:
